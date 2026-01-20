@@ -7,324 +7,274 @@
     <link href="https://fonts.googleapis.com" rel="stylesheet">
     <style>
         :root {
-            --primary: #1a2a6c;
-            --accent: #0052cc;
-            --text-dark: #2d3436;
-            --text-light: #636e72;
-            --bg-light: #f8f9fa;
-            --border: #dfe6e9;
+            --primary: #0f172a; /* Deep Slate */
+            --accent: #2563eb;  /* Modern Blue */
+            --text-main: #1e293b;
+            --text-light: #64748b;
+            --bg-body: #f1f5f9;
+            --white: #ffffff;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.6;
-            padding: 40px 20px;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.5;
+            padding: 40px 15px;
         }
 
-        .container {
-            max-width: 900px;
+        .cv-container {
+            max-width: 850px;
             margin: 0 auto;
-            background: #fff;
+            background: var(--white);
             padding: 50px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border-radius: 8px;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
 
         header {
-            border-bottom: 3px solid var(--primary);
-            padding-bottom: 20px;
-            margin-bottom: 30px;
             display: flex;
             justify-content: space-between;
-            align-items: flex-end;
+            align-items: flex-start;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 25px;
+            margin-bottom: 30px;
         }
 
-        .header-left h1 {
-            font-size: 2.5rem;
+        .header-info h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
             color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: -1px;
-            margin-bottom: 5px;
+            letter-spacing: -0.025em;
         }
 
-        .header-left p {
+        .header-info p {
             font-size: 1.1rem;
             color: var(--accent);
-            font-weight: 600;
+            font-weight: 500;
+            margin-top: 4px;
         }
 
-        .header-right {
+        .contact-info {
             text-align: right;
             font-size: 0.9rem;
             color: var(--text-light);
         }
 
-        section {
-            margin-bottom: 35px;
-        }
+        section { margin-bottom: 28px; }
 
         h2 {
-            font-size: 1.2rem;
-            color: var(--primary);
+            font-size: 1rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            border-left: 4px solid var(--accent);
-            padding-left: 15px;
-            margin-bottom: 20px;
+            letter-spacing: 0.1em;
+            color: var(--primary);
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+            font-weight: 700;
         }
 
-        .about-text {
-            font-size: 1.05rem;
-            color: var(--text-dark);
+        .summary {
+            font-size: 1rem;
+            color: var(--text-main);
             text-align: justify;
         }
 
-        .experience-item {
-            margin-bottom: 30px;
-            page-break-inside: avoid;
-        }
+        .experience-item { margin-bottom: 24px; }
 
         .exp-header {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 8px;
+            align-items: baseline;
         }
 
-        .job-title {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--text-dark);
-        }
+        .role { font-weight: 700; font-size: 1.05rem; color: var(--primary); }
+        .company { font-weight: 600; color: var(--accent); }
+        .date { font-size: 0.85rem; color: var(--text-light); font-weight: 500; }
 
-        .company {
-            color: var(--accent);
-            font-weight: 600;
-        }
-
-        .date {
-            font-size: 0.9rem;
-            color: var(--text-light);
+        .impact-statement {
             font-style: italic;
-        }
-
-        .impact-summary {
-            font-weight: 600;
             font-size: 0.95rem;
-            margin-bottom: 8px;
-            color: var(--text-dark);
+            margin: 4px 0 8px 0;
+            color: var(--text-main);
         }
 
-        ul {
-            list-style: none;
-            padding-left: 0;
-        }
+        ul { list-style: none; margin-top: 8px; }
 
         ul li {
             position: relative;
-            padding-left: 20px;
-            margin-bottom: 5px;
-            font-size: 0.95rem;
+            padding-left: 18px;
+            margin-bottom: 4px;
+            font-size: 0.92rem;
         }
 
         ul li::before {
-            content: "•";
+            content: "→";
             position: absolute;
             left: 0;
             color: var(--accent);
             font-weight: bold;
         }
 
-        .stack {
+        .tech-stack {
+            font-size: 0.8rem;
             margin-top: 10px;
-            font-size: 0.85rem;
-            background: #f1f3f5;
-            padding: 8px 12px;
-            border-radius: 4px;
-            display: inline-block;
-            color: var(--primary);
+            background: #f8fafc;
+            padding: 6px 10px;
+            border-left: 3px solid var(--accent);
+            color: var(--text-light);
         }
 
-        .stack strong {
-            color: var(--text-dark);
-        }
+        .tech-stack strong { color: var(--text-main); }
 
-        .grid-2 {
+        .grid-refs {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 15px;
         }
 
-        .reference-card {
-            background: #fff;
-            border: 1px solid var(--border);
-            padding: 12px;
-            border-radius: 5px;
-            font-size: 0.9rem;
+        .ref-item {
+            font-size: 0.85rem;
+            padding: 10px;
+            border: 1px solid #f1f5f9;
         }
 
         .ref-name { font-weight: 700; color: var(--primary); }
-        .ref-pos { color: var(--text-light); font-size: 0.85rem; }
 
         @media print {
-            body { background: white; padding: 0; }
-            .container { box-shadow: none; max-width: 100%; padding: 20px; }
-            header { margin-bottom: 20px; }
+            body { padding: 0; background: white; }
+            .cv-container { box-shadow: none; max-width: 100%; padding: 10px; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
+<div class="cv-container">
     <header>
-        <div class="header-left">
+        <div class="header-info">
             <h1>Alexis José Llanco Flores</h1>
-            <p>Analista Programador Senior | Aspirante a Arquitecto de Soluciones</p>
+            <p>Technical Lead Backend | Software Governance Specialist</p>
         </div>
-        <div class="header-right">
+        <div class="contact-info">
             <p>Lima, Perú</p>
             <p>josealexis.llanco@gmail.com</p>
         </div>
     </header>
 
-    <section id="sobre-mi">
-        <h2>Sobre Mí</h2>
-        <p class="about-text">
-            Analista Programador Senior con foco en Arquitectura de Soluciones. Experiencia sólida en validación técnica, liderazgo de equipos y automatización de procesos CI/CD. Mi objetivo es transicionar a roles estratégicos donde pueda aplicar mi experiencia en el diseño y la planificación de software en entornos cloud, asegurando la escalabilidad y eficiencia operativa.
+    <section>
+        <h2>Perfil Profesional</h2>
+        <p class="summary">
+            Especialista Backend y Líder Técnico con sólida trayectoria en la implementación de frameworks corporativos y gobernanza de software. Experto en asegurar la calidad técnica y el cumplimiento de estándares en arquitecturas bancarias regionales. Mi enfoque actual combina el liderazgo técnico de backend con el análisis estratégico, orientado a evolucionar hacia el diseño de <strong>Arquitecturas de Soluciones Cloud</strong> escalables y resilientes.
         </p>
     </section>
 
-    <section id="experiencia">
+    <section>
         <h2>Experiencia Profesional</h2>
 
-        <!-- Empresa F -->
         <div class="experience-item">
             <div class="exp-header">
-                <span class="job-title">Analista Programador Java (APX) / Líder Técnico</span>
+                <span class="role">Technical Lead Backend (APX)</span>
                 <span class="date">Julio 2021 — Julio 2025</span>
             </div>
             <div class="company">Entelgy (BBVA)</div>
-            <p class="impact-summary">Liderazgo de equipo para la gobernanza de activos de software y validación de arquitectura regional para el core bancario.</p>
+            <p class="impact-statement">Liderazgo de equipo para la gobernanza de activos de software y certificación técnica de componentes regionales.</p>
             <ul>
-                <li><strong>Gobernanza y Certificación:</strong> Establecí procesos de certificación de componentes bajo estándares de arquitectura, gestionando la refactorización y mapeo de deuda técnica.</li>
-                <li><strong>Validación de Arquitectura Regional (PoCs):</strong> Elaboré Pruebas de Concepto en entornos locales para validar viabilidad y detección temprana de errores en componentes regionales.</li>
-                <li><strong>Liderazgo y Estandarización:</strong> Dirigí la subdivisión encargada de clasificar activos de software, definiendo jerarquías y procesos de automatización.</li>
-                <li><strong>Mentoría Técnica:</strong> Referente técnico para nuevos miembros, asegurando alineación con el framework corporativo y metodologías Agile.</li>
+                <li><strong>Gobernanza de Backend:</strong> Lideré el proceso de certificación de componentes bajo estándares regionales, gestionando refactorizaciones y el mapeo de deuda técnica para asegurar la integridad del framework.</li>
+                <li><strong>Validación Técnica Local:</strong> Ejecuté Pruebas de Concepto (PoCs) para validar el comportamiento y compatibilidad de componentes backend diseñados para la región en entornos locales.</li>
+                <li><strong>Estandarización y Clasificación:</strong> Dirigí una subdivisión técnica enfocada en ordenar y clasificar la información de activos de software, optimizando la visibilidad para los Solution Architects.</li>
+                <li><strong>Referente Técnico:</strong> Definí jerarquías de equipo y actué como mentor para nuevos integrantes, garantizando la adopción de buenas prácticas y metodologías Agile.</li>
             </ul>
-            <div class="stack"><strong>Stack:</strong> Java, Spring, Oracle, Docker, Jenkins, Bitbucket, Git, Kanban, Scrum.</div>
+            <p class="tech-stack"><strong>Tecnologías:</strong> Java, Spring, Oracle, Docker, Jenkins, Bitbucket, Git, Kanban, Scrum, EpsilonEP.</p>
         </div>
 
-        <!-- Empresa E -->
         <div class="experience-item">
             <div class="exp-header">
-                <span class="job-title">Analista Programador</span>
+                <span class="role">Analista Programador</span>
                 <span class="date">Febrero 2020 — Mayo 2020</span>
             </div>
             <div class="company">SAPIA</div>
-            <p class="impact-summary">Diseño e implementación de soluciones de integración entre sistemas legacy y arquitecturas modernas de microservicios.</p>
+            <p class="impact-statement">Diseño e implementación de integraciones críticas entre sistemas legacy y arquitecturas modernas.</p>
             <ul>
-                <li><strong>Modernización de Integraciones:</strong> Ejecuté la integración de sistemas legacy mediante Oracle Service Bus (OSB) y Message-Driven Bus (MDB).</li>
-                <li><strong>Ciclo de Vida Completo:</strong> Lideré desde la ideación hasta la certificación de servicios REST y aplicativos Batch (.JAR) de alta criticidad.</li>
+                <li><strong>Integración Middleware:</strong> Implementé flujos de comunicación mediante Oracle Service Bus (OSB) y Message-Driven Bus (MDB) para procesos de alta disponibilidad.</li>
+                <li><strong>Gestión de Ciclo de Vida:</strong> Responsable del desarrollo E2E de servicios REST y procesos Batch (.JAR), desde su definición técnica hasta la certificación final.</li>
             </ul>
-            <div class="stack"><strong>Stack:</strong> Java 8, Spring Boot, Spring MVC, PL/SQL, OSB, MDB.</div>
+            <p class="tech-stack"><strong>Tecnologías:</strong> Java 8, Spring Boot, PL/SQL, Oracle Service Bus, MDB.</p>
         </div>
 
-        <!-- Empresa D -->
         <div class="experience-item">
             <div class="exp-header">
-                <span class="job-title">Analista QA</span>
+                <span class="role">Analista QA</span>
                 <span class="date">Octubre 2018 — Abril 2019</span>
             </div>
             <div class="company">Manpower (EQUIFAX)</div>
-            <p class="impact-summary">Implementación de estrategias de calidad continua (CI/CD) y automatización para robustecer soluciones de software.</p>
             <ul>
-                <li><strong>Automatización de Infraestructura:</strong> Lideré la automatización de pruebas integrales (funcionales, no funcionales, estáticas y dinámicas).</li>
+                <li><strong>Automatización de Calidad:</strong> Lideré la implementación de pruebas funcionales, no funcionales y de regresión dentro de pipelines de CI/CD para fortalecer la arquitectura de software.</li>
             </ul>
-            <div class="stack"><strong>Stack:</strong> Java 8, Selenium, Spring Boot, Go Pipelines, Jenkins, SonarQube, Jira.</div>
+            <p class="tech-stack"><strong>Tecnologías:</strong> Java 8, Selenium, Spring Boot, Go Pipelines, Jenkins, SonarQube.</p>
         </div>
 
-        <!-- Empresa C -->
         <div class="experience-item">
             <div class="exp-header">
-                <span class="job-title">Analista Programador</span>
+                <span class="role">Analista Programador</span>
                 <span class="date">Marzo 2018 — Septiembre 2018</span>
             </div>
             <div class="company">SERVEX</div>
-            <p class="impact-summary">Transformación digital mediante gestión de datos maestros (MDM) y desarrollo full-stack.</p>
             <ul>
-                <li><strong>Estrategia de Datos (MDM):</strong> Extracción y gestión de Master Data Management para centralizar indicadores de desempeño.</li>
-                <li><strong>Digitalización de Procesos:</strong> Desarrollo de ecosistema para monitoreo de talento humano integrando servicios REST.</li>
+                <li><strong>Estrategia de Datos (MDM):</strong> Gestión de datos maestros para alimentar indicadores clave de desempeño en procesos de transformación digital de RRHH.</li>
             </ul>
-            <div class="stack"><strong>Stack:</strong> Java 8, Angular 8, SQL Server, Javascript, Materialize, MDM.</div>
+            <p class="tech-stack"><strong>Tecnologías:</strong> Java 8, Angular 8, SQL Server, MDM, REST Services.</p>
         </div>
 
-        <!-- Empresa B -->
         <div class="experience-item">
             <div class="exp-header">
-                <span class="job-title">Analista Programador de Sistemas</span>
+                <span class="role">Analista Programador de Sistemas</span>
                 <span class="date">Agosto 2016 — Agosto 2017</span>
             </div>
             <div class="company">CREDINKA</div>
-            <p class="impact-summary">Diseño funcional y técnico estableciendo bases conceptuales para el desarrollo de software.</p>
             <ul>
-                <li><strong>Modelado de Soluciones:</strong> Elaboración de modelos conceptuales y diagramas de flujo como blueprint técnico.</li>
-                <li><strong>Gestión de Requerimientos:</strong> Traducción de necesidades de stakeholders en especificaciones de casos de uso y prototipos.</li>
+                <li><strong>Modelado Técnico:</strong> Elaboré diagramas de flujo, modelos conceptuales y diccionarios de datos para la estructuración de nuevos sistemas bancarios web.</li>
             </ul>
-            <div class="stack"><strong>Stack:</strong> Java EE 8, C# .NET 4.5, SQL Server, MySQL, Git.</div>
+            <p class="tech-stack"><strong>Tecnologías:</strong> Java EE 8, C# .NET 4.5, SQL Server, MySQL, Git.</p>
         </div>
 
-        <!-- Empresa A -->
         <div class="experience-item">
             <div class="exp-header">
-                <span class="job-title">Programador</span>
+                <span class="role">Programador</span>
                 <span class="date">Enero 2016 — Julio 2016</span>
             </div>
             <div class="company">BITMAP</div>
             <ul>
-                <li><strong>Arquitectura de Servicios:</strong> Implementación del core de servicios web para plataforma de transporte tipo Uber y sector construcción.</li>
+                <li><strong>Desarrollo Core:</strong> Implementación de servicios web para aplicaciones de movilidad (tipo Uber) y sistemas de gestión para construcción.</li>
             </ul>
-            <div class="stack"><strong>Stack:</strong> C#, MVC, SQL Server, Google Maps API, AJAX, Bootstrap.</div>
+            <p class="tech-stack"><strong>Tecnologías:</strong> C#, MVC, SQL Server, Google Maps API, AJAX, Bootstrap.</p>
         </div>
     </section>
 
-    <section id="formacion">
-        <h2>Formación Académica</h2>
-        <div class="exp-header">
-            <span class="job-title">CIBERTEC, Lima</span>
-            <span class="date">Egresado</span>
-        </div>
-        <p>Profesional Técnico en Computación e Informática</p>
+    <section>
+        <h2>Formación</h2>
+        <p><strong>CIBERTEC</strong>, Lima | Egresado en Computación e Informática</p>
     </section>
 
-    <section id="referencias">
-        <h2>Referencias Profesionales</h2>
-        <div class="grid-2">
-            <div class="reference-card">
-                <div class="ref-name">Alex Diaz</div>
-                <div class="ref-pos">Banking Architect, BBVA</div>
-                <div>Telf: 995177175</div>
+    <section>
+        <h2>Referencias</h2>
+        <div class="grid-refs">
+            <div class="ref-item">
+                <p class="ref-name">Alex Diaz</p>
+                <p>Banking Architect (BBVA) | 995177175</p>
             </div>
-            <div class="reference-card">
-                <div class="ref-name">Arturo Urquizo</div>
-                <div class="ref-pos">Jefe de Proyecto, SAPIA</div>
-                <div>Telf: 997594803</div>
+            <div class="ref-item">
+                <p class="ref-name">Arturo Urquizo</p>
+                <p>Jefe de Proyecto (SAPIA) | 997594803</p>
             </div>
-            <div class="reference-card">
-                <div class="ref-name">Mayra Amasifuen</div>
-                <div class="ref-pos">Coordinadora QA, EQUIFAX</div>
-                <div>Telf: 959175102</div>
+            <div class="ref-item">
+                <p class="ref-name">Mayra Amasifuen</p>
+                <p>Coordinadora QA (EQUIFAX) | 959175102</p>
             </div>
-            <div class="reference-card">
-                <div class="ref-name">Airton Piro</div>
-                <div class="ref-pos">Jefe de Desarrollo, SERVEX</div>
-                <div>Telf: 963850761</div>
+            <div class="ref-item">
+                <p class="ref-name">Airton Piro</p>
+                <p>Jefe de Desarrollo (SERVEX) | 963850761</p>
             </div>
         </div>
     </section>
