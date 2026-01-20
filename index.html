@@ -29,22 +29,44 @@
             max-width: 850px;
             margin: 0 auto;
             background: var(--white);
-            padding: 50px;
+            padding: 40px 50px;
             border-radius: 4px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
 
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
+            display: grid;
+            grid-template-columns: 120px 1fr auto;
+            gap: 25px;
+            align-items: center;
             border-bottom: 2px solid var(--primary);
             padding-bottom: 25px;
             margin-bottom: 30px;
         }
 
+        .photo-space {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #e2e8f0;
+            border: 2px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            color: var(--text-light);
+            font-size: 0.8rem;
+            text-align: center;
+        }
+
+        .photo-space img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         .header-info h1 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 700;
             color: var(--primary);
             letter-spacing: -0.025em;
@@ -61,6 +83,9 @@
             text-align: right;
             font-size: 0.9rem;
             color: var(--text-light);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
         }
 
         section { margin-bottom: 28px; }
@@ -146,6 +171,7 @@
         @media print {
             body { padding: 0; background: white; }
             .cv-container { box-shadow: none; max-width: 100%; padding: 10px; }
+            .photo-space { border: 1px solid #ccc; }
         }
     </style>
 </head>
@@ -153,13 +179,23 @@
 
 <div class="cv-container">
     <header>
+        <!-- ESPACIO PARA FOTO -->
+        <div class="photo-space">
+            <!-- Reemplaza 'src' con la ruta de tu foto -->
+            <img src="tu-foto.jpg" alt="Foto Alexis José">
+            <!-- Si no tienes foto aún, se verá el fondo gris -->
+        </div>
+
         <div class="header-info">
             <h1>Alexis José Llanco Flores</h1>
             <p>Technical Lead Backend | Software Governance Specialist</p>
         </div>
+
         <div class="contact-info">
-            <p>Lima, Perú</p>
+            <p><strong>Lima, Perú</strong></p>
             <p>josealexis.llanco@gmail.com</p>
+            <p>+51 9XX XXX XXX</p> <!-- COLOCA TU TELÉFONO AQUÍ -->
+            <p>://linkedin.com</p>
         </div>
     </header>
 
@@ -175,8 +211,8 @@
 
         <div class="experience-item">
             <div class="exp-header">
-                <span class="role">Analista Programador JAVA (APX Architect)</span>
-                <span class="date">Julio 2021 — Agosto 2025</span>
+                <span class="role">Technical Lead Backend (APX)</span>
+                <span class="date">Julio 2021 — Julio 2025</span>
             </div>
             <div class="company">Entelgy (BBVA)</div>
             <p class="impact-statement">Liderazgo de equipo para la gobernanza de activos de software y certificación técnica de componentes regionales.</p>
@@ -186,7 +222,7 @@
                 <li><strong>Estandarización y Clasificación:</strong> Dirigí una subdivisión técnica enfocada en ordenar y clasificar la información de activos de software, optimizando la visibilidad para los Solution Architects.</li>
                 <li><strong>Referente Técnico:</strong> Definí jerarquías de equipo y actué como mentor para nuevos integrantes, garantizando la adopción de buenas prácticas y metodologías Agile.</li>
             </ul>
-            <p class="tech-stack"><strong>Tecnologías:</strong> Java, Spring, Oracle, Docker, Jenkins, Bitbucket, Git, Kanban, Scrum.</p>
+            <p class="tech-stack"><strong>Tecnologías:</strong> Java, Spring, Oracle, Docker, Jenkins, Bitbucket, Git, Kanban, Scrum, EpsilonEP.</p>
         </div>
 
         <div class="experience-item">
