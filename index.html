@@ -7,8 +7,9 @@
     <link href="https://fonts.googleapis.com" rel="stylesheet">
     <style>
         :root {
-            --primary: #0f172a; /* Deep Slate */
-            --accent: #2563eb;  /* Modern Blue */
+            --primary: #0f172a; 
+            --accent: #2563eb;  
+            --remote-label: #16a34a; /* Verde para resaltar disponibilidad remota */
             --text-main: #1e293b;
             --text-light: #64748b;
             --bg-body: #f1f5f9;
@@ -36,7 +37,7 @@
 
         header {
             display: grid;
-            grid-template-columns: 120px 1fr auto;
+            grid-template-columns: 110px 1fr auto;
             gap: 25px;
             align-items: center;
             border-bottom: 2px solid var(--primary);
@@ -45,18 +46,15 @@
         }
 
         .photo-space {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
+            width: 110px;
+            height: 110px;
+            border-radius: 10%; /* Estilo moderno sutilmente cuadrado */
             background-color: #e2e8f0;
-            border: 2px solid var(--accent);
+            border: 1px solid #cbd5e1;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            color: var(--text-light);
-            font-size: 0.8rem;
-            text-align: center;
         }
 
         .photo-space img {
@@ -66,48 +64,62 @@
         }
 
         .header-info h1 {
-            font-size: 2rem;
+            font-size: 1.9rem;
             font-weight: 700;
             color: var(--primary);
             letter-spacing: -0.025em;
         }
 
-        .header-info p {
+        .header-info .job-title {
             font-size: 1.1rem;
             color: var(--accent);
-            font-weight: 500;
-            margin-top: 4px;
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        .remote-badge {
+            display: inline-block;
+            margin-top: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--remote-label);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: #f0fdf4;
+            padding: 2px 8px;
+            border: 1px solid #dcfce7;
+            border-radius: 4px;
         }
 
         .contact-info {
             text-align: right;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-light);
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 3px;
         }
 
-        section { margin-bottom: 28px; }
+        section { margin-bottom: 25px; }
 
         h2 {
-            font-size: 1rem;
+            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             color: var(--primary);
             border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 8px;
-            margin-bottom: 16px;
+            padding-bottom: 6px;
+            margin-bottom: 14px;
             font-weight: 700;
         }
 
         .summary {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--text-main);
             text-align: justify;
         }
 
-        .experience-item { margin-bottom: 24px; }
+        .experience-item { margin-bottom: 22px; }
 
         .exp-header {
             display: flex;
@@ -115,24 +127,23 @@
             align-items: baseline;
         }
 
-        .role { font-weight: 700; font-size: 1.05rem; color: var(--primary); }
+        .role { font-weight: 700; font-size: 1rem; color: var(--primary); }
         .company { font-weight: 600; color: var(--accent); }
-        .date { font-size: 0.85rem; color: var(--text-light); font-weight: 500; }
+        .date { font-size: 0.8rem; color: var(--text-light); font-weight: 500; }
 
         .impact-statement {
             font-style: italic;
-            font-size: 0.95rem;
-            margin: 4px 0 8px 0;
+            font-size: 0.9rem;
+            margin: 2px 0 6px 0;
             color: var(--text-main);
         }
-
-        ul { list-style: none; margin-top: 8px; }
 
         ul li {
             position: relative;
             padding-left: 18px;
-            margin-bottom: 4px;
-            font-size: 0.92rem;
+            margin-bottom: 3px;
+            font-size: 0.88rem;
+            list-style: none;
         }
 
         ul li::before {
@@ -140,14 +151,13 @@
             position: absolute;
             left: 0;
             color: var(--accent);
-            font-weight: bold;
         }
 
         .tech-stack {
-            font-size: 0.8rem;
-            margin-top: 10px;
+            font-size: 0.78rem;
+            margin-top: 8px;
             background: #f8fafc;
-            padding: 6px 10px;
+            padding: 5px 10px;
             border-left: 3px solid var(--accent);
             color: var(--text-light);
         }
@@ -157,12 +167,12 @@
         .grid-refs {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            gap: 12px;
         }
 
         .ref-item {
-            font-size: 0.85rem;
-            padding: 10px;
+            font-size: 0.8rem;
+            padding: 8px;
             border: 1px solid #f1f5f9;
         }
 
@@ -171,7 +181,6 @@
         @media print {
             body { padding: 0; background: white; }
             .cv-container { box-shadow: none; max-width: 100%; padding: 10px; }
-            .photo-space { border: 1px solid #ccc; }
         }
     </style>
 </head>
@@ -179,23 +188,20 @@
 
 <div class="cv-container">
     <header>
-        <!-- ESPACIO PARA FOTO -->
         <div class="photo-space">
-            <!-- Reemplaza 'src' con la ruta de tu foto -->
-            <img src="tu-foto.jpg" alt="Foto Alexis José">
-            <!-- Si no tienes foto aún, se verá el fondo gris -->
+            <img src="tu-foto.jpg" alt="Alexis José">
         </div>
 
         <div class="header-info">
             <h1>Alexis José Llanco Flores</h1>
-            <p>Technical Lead Backend | Software Governance Specialist</p>
+            <p class="job-title">Technical Lead Backend | Software Governance Specialist</p>
+            <span class="remote-badge">Disponibilidad: 100% Remoto</span>
         </div>
 
         <div class="contact-info">
             <p><strong>Lima, Perú</strong></p>
             <p>josealexis.llanco@gmail.com</p>
-            <p>+51 9XX XXX XXX</p> <!-- COLOCA TU TELÉFONO AQUÍ -->
-            <p>://linkedin.com</p>
+            <p>+51 XXXXXXXXXXXX</p>
         </div>
     </header>
 
@@ -212,17 +218,17 @@
         <div class="experience-item">
             <div class="exp-header">
                 <span class="role">Technical Lead Backend (APX)</span>
-                <span class="date">Julio 2021 — Julio 2025</span>
+                <span class="date">Julio 2021 — Agosto 2025</span>
             </div>
             <div class="company">Entelgy (BBVA)</div>
-            <p class="impact-statement">Liderazgo de equipo para la gobernanza de activos de software y certificación técnica de componentes regionales.</p>
+            <p class="impact-statement">Gobernanza de activos de software y certificación técnica de componentes regionales.</p>
             <ul>
-                <li><strong>Gobernanza de Backend:</strong> Lideré el proceso de certificación de componentes bajo estándares regionales, gestionando refactorizaciones y el mapeo de deuda técnica para asegurar la integridad del framework.</li>
-                <li><strong>Validación Técnica Local:</strong> Ejecuté Pruebas de Concepto (PoCs) para validar el comportamiento y compatibilidad de componentes backend diseñados para la región en entornos locales.</li>
-                <li><strong>Estandarización y Clasificación:</strong> Dirigí una subdivisión técnica enfocada en ordenar y clasificar la información de activos de software, optimizando la visibilidad para los Solution Architects.</li>
-                <li><strong>Referente Técnico:</strong> Definí jerarquías de equipo y actué como mentor para nuevos integrantes, garantizando la adopción de buenas prácticas y metodologías Agile.</li>
+                <li><strong>Gobernanza de Backend:</strong> Lideré la certificación de componentes bajo estándares regionales, gestionando refactorizaciones y deuda técnica para asegurar la integridad del framework.</li>
+                <li><strong>Validación Técnica:</strong> Ejecuté PoCs para validar la compatibilidad de componentes backend diseñados para la región en entornos locales.</li>
+                <li><strong>Estandarización:</strong> Dirigí la clasificación de activos de software, optimizando la visibilidad para el área de Arquitectura de Soluciones.</li>
+                <li><strong>Mentoria:</strong> Definí jerarquías y actué como referente técnico para nuevos integrantes en entornos Agile.</li>
             </ul>
-            <p class="tech-stack"><strong>Tecnologías:</strong> Java, Spring, Oracle, Docker, Jenkins, Bitbucket, Git, Kanban, Scrum, EpsilonEP.</p>
+            <p class="tech-stack"><strong>Stack:</strong> Java, Spring, Oracle, Docker, Jenkins, Bitbucket, Git, Kanban, EpsilonEP.</p>
         </div>
 
         <div class="experience-item">
@@ -231,12 +237,12 @@
                 <span class="date">Febrero 2020 — Mayo 2020</span>
             </div>
             <div class="company">SAPIA</div>
-            <p class="impact-statement">Diseño e implementación de integraciones críticas entre sistemas legacy y arquitecturas modernas.</p>
+            <p class="impact-statement">Implementación de integraciones críticas entre sistemas legacy y arquitecturas modernas.</p>
             <ul>
-                <li><strong>Integración Middleware:</strong> Implementé flujos de comunicación mediante Oracle Service Bus (OSB) y Message-Driven Bus (MDB) para procesos de alta disponibilidad.</li>
-                <li><strong>Gestión de Ciclo de Vida:</strong> Responsable del desarrollo E2E de servicios REST y procesos Batch (.JAR), desde su definición técnica hasta la certificación final.</li>
+                <li><strong>Middleware:</strong> Implementé flujos mediante Oracle Service Bus (OSB) y Message-Driven Bus (MDB) para alta disponibilidad.</li>
+                <li><strong>Desarrollo E2E:</strong> Responsable de servicios REST y aplicativos Batch (.JAR) hasta su certificación final.</li>
             </ul>
-            <p class="tech-stack"><strong>Tecnologías:</strong> Java 8, Spring Boot, PL/SQL, Oracle Service Bus, MDB.</p>
+            <p class="tech-stack"><strong>Stack:</strong> Java 8, Spring Boot, PL/SQL, OSB, MDB.</p>
         </div>
 
         <div class="experience-item">
@@ -246,9 +252,9 @@
             </div>
             <div class="company">Manpower (EQUIFAX)</div>
             <ul>
-                <li><strong>Automatización de Calidad:</strong> Lideré la implementación de pruebas funcionales, no funcionales y de regresión dentro de pipelines de CI/CD para fortalecer la arquitectura de software.</li>
+                <li><strong>Automatización:</strong> Implementación de pruebas funcionales y no funcionales en pipelines CI/CD.</li>
             </ul>
-            <p class="tech-stack"><strong>Tecnologías:</strong> Java 8, Selenium, Spring Boot, Go Pipelines, Jenkins, SonarQube.</p>
+            <p class="tech-stack"><strong>Stack:</strong> Java 8, Selenium, Go Pipelines, Jenkins, SonarQube.</p>
         </div>
 
         <div class="experience-item">
@@ -258,9 +264,9 @@
             </div>
             <div class="company">SERVEX</div>
             <ul>
-                <li><strong>Estrategia de Datos (MDM):</strong> Gestión de datos maestros para alimentar indicadores clave de desempeño en procesos de transformación digital de RRHH.</li>
+                <li><strong>Gestión MDM:</strong> Administración de datos maestros para indicadores clave en transformación digital de RRHH.</li>
             </ul>
-            <p class="tech-stack"><strong>Tecnologías:</strong> Java 8, Angular 8, SQL Server, MDM, REST Services.</p>
+            <p class="tech-stack"><strong>Stack:</strong> Java 8, Angular 8, SQL Server, MDM.</p>
         </div>
 
         <div class="experience-item">
@@ -270,9 +276,9 @@
             </div>
             <div class="company">CREDINKA</div>
             <ul>
-                <li><strong>Modelado Técnico:</strong> Elaboré diagramas de flujo, modelos conceptuales y diccionarios de datos para la estructuración de nuevos sistemas bancarios web.</li>
+                <li><strong>Modelado Técnico:</strong> Elaboración de diagramas de flujo y modelos conceptuales para sistemas bancarios.</li>
             </ul>
-            <p class="tech-stack"><strong>Tecnologías:</strong> Java EE 8, C# .NET 4.5, SQL Server, MySQL, Git.</p>
+            <p class="tech-stack"><strong>Stack:</strong> Java EE 8, C# .NET 4.5, SQL Server, MySQL.</p>
         </div>
 
         <div class="experience-item">
@@ -282,35 +288,29 @@
             </div>
             <div class="company">BITMAP</div>
             <ul>
-                <li><strong>Desarrollo Core:</strong> Implementación de servicios web para aplicaciones de movilidad (tipo Uber) y sistemas de gestión para construcción.</li>
+                <li><strong>Desarrollo Core:</strong> Servicios web para apps de movilidad y gestión de construcción.</li>
             </ul>
-            <p class="tech-stack"><strong>Tecnologías:</strong> C#, MVC, SQL Server, Google Maps API, AJAX, Bootstrap.</p>
+            <p class="tech-stack"><strong>Stack:</strong> C#, MVC, SQL Server, Google Maps API.</p>
         </div>
     </section>
 
     <section>
-        <h2>Formación</h2>
-        <p><strong>CIBERTEC</strong>, Lima | Egresado en Computación e Informática</p>
-    </section>
-
-    <section>
-        <h2>Referencias</h2>
+        <h2>Formación y Referencias</h2>
         <div class="grid-refs">
+            <div class="ref-item">
+                <p><strong>CIBERTEC</strong> | Egresado Computación e Informática</p>
+            </div>
             <div class="ref-item">
                 <p class="ref-name">Alex Diaz</p>
                 <p>Banking Architect (BBVA) | 995177175</p>
             </div>
             <div class="ref-item">
                 <p class="ref-name">Arturo Urquizo</p>
-                <p>Jefe de Proyecto (SAPIA) | 997594803</p>
+                <p>Jefe Proyecto (SAPIA) | 997594803</p>
             </div>
             <div class="ref-item">
                 <p class="ref-name">Mayra Amasifuen</p>
-                <p>Coordinadora QA (EQUIFAX) | 959175102</p>
-            </div>
-            <div class="ref-item">
-                <p class="ref-name">Airton Piro</p>
-                <p>Jefe de Desarrollo (SERVEX) | 963850761</p>
+                <p>Coord. QA (EQUIFAX) | 959175102</p>
             </div>
         </div>
     </section>
