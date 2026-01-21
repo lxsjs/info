@@ -22,172 +22,151 @@
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-body);
             color: var(--text-main);
-            line-height: 1.5;
-            padding: 40px 15px;
+            line-height: 1.4;
+            padding: 20px;
         }
 
         .cv-container {
             max-width: 850px;
             margin: 0 auto;
             background: var(--white);
-            padding: 50px;
+            padding: 40px 50px;
             border-radius: 4px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
 
         header {
             display: grid;
-            grid-template-columns: 110px 1fr auto;
+            grid-template-columns: 100px 1fr auto;
             gap: 25px;
             align-items: center;
             border-bottom: 2px solid var(--primary);
-            padding-bottom: 25px;
-            margin-bottom: 30px;
+            padding-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .photo-space {
-            width: 110px;
-            height: 110px;
+            width: 100px;
+            height: 100px;
             border-radius: 12px; 
             background-color: #e2e8f0;
             border: 1px solid #cbd5e1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             overflow: hidden;
         }
 
         .photo-space img { width: 100%; height: 100%; object-fit: cover; }
 
         .header-info h1 {
-            font-size: 2.1rem;
+            font-size: 1.9rem;
             font-weight: 700;
             color: var(--primary);
             letter-spacing: -0.025em;
         }
 
         .header-info .job-title {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: var(--accent);
             font-weight: 600;
-            margin-top: 4px;
         }
 
         .contact-info {
             text-align: right;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-light);
-            display: flex;
-            flex-direction: column;
-            gap: 3px;
         }
 
-        section { margin-bottom: 35px; }
+        section { margin-bottom: 25px; }
 
         h2 {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 0.12em;
+            letter-spacing: 0.1em;
             color: var(--text-light);
             border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 8px;
-            margin-bottom: 20px;
+            padding-bottom: 6px;
+            margin-bottom: 15px;
             font-weight: 700;
         }
 
         .summary {
-            font-size: 1rem;
-            color: var(--text-main);
+            font-size: 0.95rem;
             text-align: justify;
             border-left: 4px solid var(--accent);
-            padding-left: 20px;
+            padding-left: 15px;
         }
 
-        .experience-item { margin-bottom: 30px; page-break-inside: avoid; }
+        .experience-item { margin-bottom: 22px; page-break-inside: avoid; }
 
         .exp-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
-        .role-wrapper { display: flex; align-items: center; gap: 10px; }
-        .role-indicator { width: 4px; height: 20px; background-color: var(--accent); border-radius: 2px; }
-        .role { font-weight: 700; font-size: 1.1rem; color: var(--primary); }
-        .company { font-weight: 600; color: var(--accent); margin-left: 14px; display: block; font-size: 1rem; margin-top: -2px; }
-        .date { font-size: 0.9rem; color: var(--text-light); font-weight: 500; }
+        .role-wrapper { display: flex; align-items: center; gap: 8px; }
+        .role-indicator { width: 4px; height: 16px; background-color: var(--accent); border-radius: 2px; }
+        .role { font-weight: 700; font-size: 1rem; color: var(--primary); }
+        .company { font-weight: 600; color: var(--accent); margin-left: 12px; font-size: 0.95rem; }
+        .date { font-size: 0.85rem; color: var(--text-light); font-weight: 500; }
 
         .impact-statement {
             font-style: italic;
-            font-size: 0.95rem;
-            margin: 8px 0 10px 14px;
+            font-size: 0.9rem;
+            margin: 4px 0 6px 12px;
             color: var(--text-main);
         }
 
-        ul { margin-left: 14px; }
+        ul { margin-left: 12px; }
         ul li {
             position: relative;
-            padding-left: 20px;
-            margin-bottom: 6px;
-            font-size: 0.95rem;
+            padding-left: 18px;
+            margin-bottom: 3px;
+            font-size: 0.9rem;
             list-style: none;
         }
 
-        ul li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: bold;
-        }
+        ul li::before { content: "•"; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
 
         .tech-stack-container {
-            margin-top: 12px;
-            margin-left: 14px;
+            margin-top: 8px;
+            margin-left: 12px;
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .stack-label {
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--text-light);
-            text-transform: uppercase;
-            margin-right: 5px;
+            gap: 5px;
         }
 
         .tech-tag {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             background: var(--bg-stack);
             color: var(--primary);
-            padding: 3px 10px;
+            padding: 2px 8px;
             border-radius: 4px;
             border: 1px solid #e2e8f0;
-            font-weight: 500;
         }
 
         .grid-refs {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            gap: 10px;
         }
 
         .ref-item {
-            font-size: 0.9rem;
-            padding: 12px;
+            font-size: 0.85rem;
+            padding: 10px;
             border-radius: 4px;
             background-color: var(--bg-stack);
         }
 
-        .ref-name { font-weight: 700; color: var(--primary); }
+        /* FUERZA EL SALTO A LA SEGUNDA HOJA PARA FORMACIÓN */
+        #formacion-referencias {
+            page-break-before: always;
+            padding-top: 20px;
+        }
 
         @media print {
             body { padding: 0; background: white; }
-            .cv-container { box-shadow: none; max-width: 100%; padding: 40px; }
-            .experience-item { page-break-inside: avoid; }
+            .cv-container { box-shadow: none; max-width: 100%; padding: 30px; }
+            @page { size: A4; margin: 0; }
         }
     </style>
 </head>
@@ -196,15 +175,13 @@
 <div class="cv-container">
     <header>
         <div class="photo-space">
-            <img src="tu-foto.jpg" alt="Alexis José Llanco Flores">
+            <img src="tu-foto.jpg" alt="Alexis José">
         </div>
-
         <div class="header-info">
             <h1>Alexis José Llanco Flores</h1>
             <p class="job-title">Software Governance Specialist</p>
             <p class="job-title">Technical Lead Backend</p>
         </div>
-
         <div class="contact-info">
             <p><strong>Lima, Perú</strong></p>
             <p>josealexis.llanco@gmail.com</p>
@@ -222,132 +199,99 @@
     <section>
         <h2>Experiencia Profesional</h2>
 
-        <!-- EMPRESA F -->
         <div class="experience-item">
             <div class="exp-header">
-                <div class="role-wrapper">
-                    <div class="role-indicator"></div>
-                    <span class="role">Analista Programador JAVA (Arquitecto APX)</span>
-                </div>
+                <div class="role-wrapper"><div class="role-indicator"></div><span class="role">Analista Programador JAVA (Arquitecto APX)</span></div>
                 <span class="date">Julio 2021 — Agosto 2025</span>
             </div>
             <span class="company">Entelgy (BBVA)</span>
-            <p class="impact-statement">Gobernanza de activos de software y certificación técnica de componentes regionales para el core bancario.</p>
+            <p class="impact-statement">Gobernanza de activos de software y certificación técnica de componentes regionales.</p>
             <ul>
-                <li><strong>Gobernanza de Backend:</strong> Lideré la certificación de componentes bajo estándares regionales, gestionando refactorizaciones y deuda técnica para asegurar la integridad del framework.</li>
-                <li><strong>Validación Técnica:</strong> Construí PoCs para validar la compatibilidad de componentes backend diseñados para la región en entornos locales.</li>
+                <li><strong>Gobernanza de Backend:</strong> Lideré la certificación de componentes bajo estándares regionales, gestionando refactorizaciones y deuda técnica.</li>
+                <li><strong>Validación Técnica:</strong> Construí PoCs para validar la compatibilidad de componentes backend regionales en entornos locales.</li>
                 <li><strong>Estandarización:</strong> Dirigí la clasificación de activos de software, optimizando la visibilidad para el área de Arquitectura APX.</li>
                 <li><strong>Mentoría:</strong> Definí jerarquías y actué como referente técnico para nuevos integrantes en entornos Agile.</li>
             </ul>
             <div class="tech-stack-container">
-                <span class="stack-label">Stack:</span>
-                <span class="tech-tag">Java</span> <span class="tech-tag">Spring</span> <span class="tech-tag">Oracle</span> <span class="tech-tag">Docker</span> <span class="tech-tag">Jenkins</span> <span class="tech-tag">Bitbucket</span> <span class="tech-tag">Git</span> <span class="tech-tag">Scrum</span> <span class="tech-tag">Kanban</span>
+                <span class="tech-tag">Java</span><span class="tech-tag">Spring</span><span class="tech-tag">Oracle</span><span class="tech-tag">Docker</span><span class="tech-tag">Jenkins</span><span class="tech-tag">Git</span><span class="tech-tag">Scrum</span><span class="tech-tag">Kanban</span>
             </div>
         </div>
 
-        <!-- EMPRESA E -->
         <div class="experience-item">
             <div class="exp-header">
-                <div class="role-wrapper">
-                    <div class="role-indicator"></div>
-                    <span class="role">Analista Programador</span>
-                </div>
+                <div class="role-wrapper"><div class="role-indicator"></div><span class="role">Analista Programador</span></div>
                 <span class="date">Febrero 2020 — Mayo 2020</span>
             </div>
             <span class="company">SAPIA (Claro)</span>
             <p class="impact-statement">Implementación de integraciones críticas entre sistemas legacy y arquitecturas modernas.</p>
             <ul>
-                <li><strong>Middleware:</strong> Implementé flujos mediante Oracle Service Bus (OSB) y Message-Driven Bus (MDB) para alta disponibilidad.</li>
+                <li><strong>Middleware:</strong> Implementé flujos mediante Oracle Service Bus (OSB) y Message-Driven Bus (MDB).</li>
                 <li><strong>Desarrollo E2E:</strong> Responsable de servicios REST y aplicativos Batch (.JAR) hasta su certificación final.</li>
             </ul>
             <div class="tech-stack-container">
-                <span class="stack-label">Stack:</span>
-                <span class="tech-tag">Java</span> <span class="tech-tag">SpringBoot</span> <span class="tech-tag">PL/SQL</span> <span class="tech-tag">OSB</span> <span class="tech-tag">MDB</span>
+                <span class="tech-tag">Java</span><span class="tech-tag">SpringBoot</span><span class="tech-tag">PL/SQL</span><span class="tech-tag">OSB</span><span class="tech-tag">MDB</span>
             </div>
         </div>
 
-        <!-- EMPRESA D -->
         <div class="experience-item">
             <div class="exp-header">
-                <div class="role-wrapper">
-                    <div class="role-indicator"></div>
-                    <span class="role">Analista QA</span>
-                </div>
+                <div class="role-wrapper"><div class="role-indicator"></div><span class="role">Analista QA</span></div>
                 <span class="date">Octubre 2018 — Abril 2019</span>
             </div>
             <span class="company">Manpower (EQUIFAX)</span>
-            <p class="impact-statement">Automatización de procesos y control de calidad en ciclos de entrega continua.</p>
             <ul>
-                <li><strong>Automatización:</strong> Implementación de pruebas funcionales y no funcionales en pipelines CI/CD garantizando estabilidad en el despliegue.</li>
+                <li><strong>Automatización:</strong> Implementación de pruebas funcionales y no funcionales en pipelines CI/CD.</li>
             </ul>
             <div class="tech-stack-container">
-                <span class="stack-label">Stack:</span>
-                <span class="tech-tag">Java</span> <span class="tech-tag">PL/SQL</span> <span class="tech-tag">Selenium</span> <span class="tech-tag">Jenkins</span> <span class="tech-tag">SonarQube</span> <span class="tech-tag">Git</span> <span class="tech-tag">Scrum</span>
+                <span class="tech-tag">Java</span><span class="tech-tag">PL/SQL</span><span class="tech-tag">Selenium</span><span class="tech-tag">Jenkins</span><span class="tech-tag">SonarQube</span><span class="tech-tag">Git</span>
             </div>
         </div>
 
-        <!-- EMPRESA C -->
         <div class="experience-item">
             <div class="exp-header">
-                <div class="role-wrapper">
-                    <div class="role-indicator"></div>
-                    <span class="role">Analista Programador</span>
-                </div>
+                <div class="role-wrapper"><div class="role-indicator"></div><span class="role">Analista Programador</span></div>
                 <span class="date">Marzo 2018 — Septiembre 2018</span>
             </div>
             <span class="company">SERVEX</span>
-            <p class="impact-statement">Transformación digital de procesos mediante gestión de datos maestros.</p>
             <ul>
-                <li><strong>Gestión MDM:</strong> Administración de datos maestros para indicadores clave en transformación digital de RRHH.</li>
+                <li><strong>Gestión MDM:</strong> Administración de datos maestros para transformación digital de RRHH.</li>
             </ul>
             <div class="tech-stack-container">
-                <span class="stack-label">Stack:</span>
-                <span class="tech-tag">Java</span> <span class="tech-tag">SQL Server</span> <span class="tech-tag">HTML</span> <span class="tech-tag">Javascript</span> <span class="tech-tag">JQuery</span> <span class="tech-tag">CSS</span> <span class="tech-tag">MDM</span>
+                <span class="tech-tag">Java</span><span class="tech-tag">SQL Server</span><span class="tech-tag">HTML</span><span class="tech-tag">Javascript</span><span class="tech-tag">CSS</span><span class="tech-tag">MDM</span>
             </div>
         </div>
 
-        <!-- EMPRESA B -->
         <div class="experience-item">
             <div class="exp-header">
-                <div class="role-wrapper">
-                    <div class="role-indicator"></div>
-                    <span class="role">Analista Programador de Sistemas</span>
-                </div>
+                <div class="role-wrapper"><div class="role-indicator"></div><span class="role">Analista Programador de Sistemas</span></div>
                 <span class="date">Agosto 2016 — Agosto 2017</span>
             </div>
             <span class="company">CREDINKA</span>
-            <p class="impact-statement">Análisis y diseño técnico para soluciones de banca digital.</p>
             <ul>
-                <li><strong>Modelado Técnico:</strong> Elaboración de diagramas de flujo y modelos conceptuales para la arquitectura de sistemas bancarios.</li>
+                <li><strong>Modelado Técnico:</strong> Elaboración de diagramas de flujo y modelos conceptuales para banca digital.</li>
             </ul>
             <div class="tech-stack-container">
-                <span class="stack-label">Stack:</span>
-                <span class="tech-tag">C#</span> <span class="tech-tag">.NET</span> <span class="tech-tag">SQL Server</span> <span class="tech-tag">JQuery</span> <span class="tech-tag">Javascript</span> <span class="tech-tag">CSS</span> <span class="tech-tag">HTML</span>
+                <span class="tech-tag">C#</span><span class="tech-tag">.NET</span><span class="tech-tag">SQL Server</span><span class="tech-tag">Javascript</span><span class="tech-tag">HTML</span>
             </div>
         </div>
 
-        <!-- EMPRESA A -->
         <div class="experience-item">
             <div class="exp-header">
-                <div class="role-wrapper">
-                    <div class="role-indicator"></div>
-                    <span class="role">Programador</span>
-                </div>
+                <div class="role-wrapper"><div class="role-indicator"></div><span class="role">Programador</span></div>
                 <span class="date">Enero 2016 — Julio 2016</span>
             </div>
             <span class="company">BITMAP</span>
-            <p class="impact-statement">Desarrollo de servicios core para transporte y construcción.</p>
             <ul>
-                <li><strong>Desarrollo Core:</strong> Servicios web para aplicativos de movilidad y soluciones de gestión en construcción.</li>
+                <li><strong>Desarrollo Core:</strong> Servicios web para aplicativos de movilidad y gestión en construcción.</li>
             </ul>
             <div class="tech-stack-container">
-                <span class="stack-label">Stack:</span>
-                <span class="tech-tag">C#</span> <span class="tech-tag">MVC</span> <span class="tech-tag">SQL Server</span> <span class="tech-tag">Google Maps API</span> <span class="tech-tag">JQuery</span> <span class="tech-tag">Javascript</span> <span class="tech-tag">CSS</span> <span class="tech-tag">HTML</span>
+                <span class="tech-tag">C#</span><span class="tech-tag">MVC</span><span class="tech-tag">SQL Server</span><span class="tech-tag">Google Maps API</span>
             </div>
         </div>
     </section>
 
-    <section id="formacion">
+    <!-- ESTA SECCIÓN SIEMPRE EMPEZARÁ EN LA HOJA 2 -->
+    <section id="formacion-referencias">
         <h2>Formación y Referencias</h2>
         <div class="grid-refs">
             <div class="ref-item">
