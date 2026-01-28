@@ -1,231 +1,437 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CV - Alexis José Llanco Flores</title>
+<html lang="es"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Alexis José Llanco Flores</title>
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f172a; 
+            --accent: #2563eb;  
+            --text-main: #1e293b;
+            --text-light: #64748b;
+            --bg-body: #f1f5f9;
+            --bg-stack: #f8fafc;
+            --white: #ffffff;
+        }
 
-<style>
-:root {
-    --primary: #0f172a;
-    --accent: #2563eb;
-    --text-main: #1e293b;
-    --text-light: #64748b;
-    --bg-body: #f1f5f9;
-    --bg-stack: #f8fafc;
-    --white: #ffffff;
-}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.5;
+            padding: 40px 15px;
+        }
 
-body {
-    font-family: Inter, Arial, sans-serif;
-    background: var(--bg-body);
-    color: var(--text-main);
-    line-height: 1.45;
-    padding: 20px;
-}
+        .cv-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 50px;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
 
-.cv-container {
-    max-width: 850px;
-    margin: auto;
-    background: var(--white);
-    padding: 35px;
-}
+        header {
+            display: grid;
+            grid-template-columns: 110px 1fr auto;
+            gap: 25px;
+            align-items: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 25px;
+            margin-bottom: 30px;
+        }
 
-/* HEADER */
-header {
-    display: grid;
-    grid-template-columns: 100px 1fr auto;
-    gap: 20px;
-    align-items: center;
-    border-bottom: 2px solid var(--primary);
-    padding-bottom: 15px;
-    margin-bottom: 20px;
-}
+        .photo-space {
+            width: 110px;
+            height: 110px;
+            border-radius: 12px; 
+            background-color: #e2e8f0;
+            border: 1px solid #cbd5e1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
 
-.photo-space {
-    width: 100px;
-    height: 100px;
-    background: #e2e8f0;
-    border-radius: 10px;
-}
+        .photo-space img { width: 100%; height: 100%; object-fit: cover; }
 
-.header-info h1 {
-    font-size: 2rem;
-    color: var(--primary);
-}
+        .header-info h1 {
+            font-size: 2.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.025em;
+        }
 
-.job-title {
-    color: var(--accent);
-    font-weight: 600;
-    font-size: 1.05rem;
-}
+        .header-info .job-title {
+            font-size: 1.15rem;
+            color: var(--accent);
+            font-weight: 600;
+            line-height: 1.3;
+            margin-top: 4px;
+        }
 
-.contact-info {
-    text-align: right;
-    font-size: 0.9rem;
-    color: var(--text-light);
-}
+        .contact-info {
+            text-align: right;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
 
-/* SECTIONS */
-section { margin-bottom: 22px; }
+        section { margin-bottom: 35px; }
 
-h2 {
-    font-size: 0.85rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--text-light);
-    border-bottom: 1px solid #e5e7eb;
-    margin-bottom: 12px;
-    padding-bottom: 4px;
-}
+        h2 {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-light);
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
 
-/* PROFILE */
-.summary {
-    border-left: 4px solid var(--accent);
-    padding-left: 14px;
-    font-size: 0.95rem;
-    text-align: justify;
-}
+        .summary {
+            font-size: 1rem;
+            color: var(--text-main);
+            text-align: justify;
+            border-left: 4px solid var(--accent);
+            padding-left: 20px;
+        }
 
-/* EXPERIENCE */
-.experience-item {
-    margin-bottom: 18px;
-    page-break-inside: avoid;
-}
+        .experience-item { margin-bottom: 30px; }
 
-.exp-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-}
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+        }
 
-.role {
-    font-weight: 700;
-    font-size: 1.05rem;
-    color: var(--primary);
-}
+        .role-wrapper { display: flex; align-items: center; gap: 10px; }
+        .role-indicator { width: 4px; height: 20px; background-color: var(--accent); border-radius: 2px; }
+        .role { font-weight: 700; font-size: 1.1rem; color: var(--primary); }
+        .company { font-weight: 600; color: var(--accent); margin-left: 14px; display: block; font-size: 1rem; margin-top: -2px; }
+        .date { font-size: 0.9rem; color: var(--text-light); font-weight: 500; }
 
-.company {
-    color: var(--accent);
-    font-weight: 600;
-    margin-left: 12px;
-    display: block;
-    font-size: 0.95rem;
-}
+        .impact-statement {
+            font-style: italic;
+            font-size: 0.95rem;
+            margin: 8px 0 10px 14px;
+            color: var(--text-main);
+        }
 
-.date {
-    font-size: 0.85rem;
-    color: var(--text-light);
-}
+        ul { margin-left: 14px; }
+        ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+            list-style: none;
+        }
 
-.impact-statement {
-    font-style: italic;
-    font-size: 0.9rem;
-    margin: 6px 0 6px 12px;
-}
+        ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
 
-ul {
-    margin-left: 12px;
-}
+        .tech-stack-container {
+            margin-top: 12px;
+            margin-left: 14px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            align-items: center;
+        }
 
-ul li {
-    list-style: disc;
-    margin-left: 16px;
-    margin-bottom: 4px;
-    font-size: 0.9rem;
-}
+        .stack-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-light);
+            text-transform: uppercase;
+            margin-right: 5px;
+        }
 
-/* PRINT */
-@media print {
-    body {
-        padding: 0;
-        background: white;
-    }
+        .tech-tag {
+            font-size: 0.8rem;
+            background: var(--bg-stack);
+            color: var(--primary);
+            padding: 3px 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+            font-weight: 500;
+        }
 
-    .cv-container {
-        padding: 25px;
-    }
-}
-</style>
+        .grid-refs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .ref-item {
+            font-size: 0.9rem;
+            padding: 12px;
+            border-radius: 4px;
+            background-color: var(--bg-stack);
+        }
+
+        .ref-name { font-weight: 700; color: var(--primary); }
+
+        @media print {
+            body { padding: 0; background: white; }
+            .cv-container { box-shadow: none; max-width: 100%; padding: 40px; }
+            .experience-item { page-break-inside: avoid; }
+        }
+    </style>
 </head>
-
 <body>
 
 <div class="cv-container">
-
-<header>
-    <div class="photo-space"></div>
-
-    <div class="header-info">
-        <h1>Alexis José Llanco Flores</h1>
-        <div class="job-title">
-            Software Governance Specialist<br>
-            Technical Lead Backend
+    <header>
+        <div class="photo-space">
+            <img src="tu-foto.jpg" alt="Alexis José Llanco Flores">
         </div>
-    </div>
 
-    <div class="contact-info">
-        <div><strong>Lima, Perú</strong></div>
-        <div>josealexis.llanco@gmail.com</div>
-        <div>+51 970646340</div>
-    </div>
-</header>
+        <div class="header-info">
+            <h1>Alexis José Llanco Flores</h1>
+            
+        </div>
 
-<section>
-    <h2>Perfil Profesional</h2>
-    <p class="summary">
-        Especialista Backend y Líder Técnico con experiencia en gobernanza de software,
-        validación de arquitecturas y calidad técnica en entornos bancarios.
-        Orientado a la evolución hacia Arquitecturas de Soluciones Cloud escalables.
-    </p>
-</section>
+        <div class="contact-info">
+            <p><strong>Lima, Perú</strong></p>
+            <p>josealexis.llanco@gmail.com</p>
+            <p>+51 970646340</p>
+        </div>
+    </header>
 
+    <section>
+        <h2>Perfil Profesional</h2>
+        <p class="summary">
+            Especialista Backend y Líder Técnico con sólida trayectoria en la implementación de frameworks corporativos y gobernanza de software. Con experiencia en asegurar la calidad técnica y el cumplimiento de estándares en arquitecturas bancarias regionales. Mi enfoque actual combina el liderazgo técnico de backend con el análisis estratégico, orientado a evolucionar hacia el diseño de Arquitecturas de Soluciones Cloud escalables y resilientes.
+        </p>
+    </section>
 <section>
     <h2>Experiencia Profesional</h2>
 
+    <!-- ENTELGY -->
     <div class="experience-item">
         <div class="exp-header">
-            <div class="role">Analista Programador Java (Arquitecto APX)</div>
-            <div class="date">2021 — 2025</div>
+            <div class="role-wrapper">
+                <div class="role-indicator"></div>
+                <span class="role">Analista Programador Java (Arquitecto APX)</span>
+            </div>
+            <span class="date">Julio 2021 — Agosto 2025</span>
         </div>
         <span class="company">Entelgy (BBVA)</span>
-        <p class="impact-statement">
-            Gobierno de arquitectura backend y certificación de componentes.
-        </p>
+        <p class="impact-statement"></p>
         <ul>
-            <li>Liderazgo del focal de Gobierno APX.</li>
-            <li>Validación de diseño, escalabilidad y estándares.</li>
-            <li>Certificación técnica, PoCs y soporte productivo.</li>
+            <li><strong>Gobierno de Arquitectura Backend:</strong> Lideré el focal de Gobierno APX, impulsando la iniciativa de levantamiento y registro de metadata de componentes desarrollados en Perú.</li>
+            <li><strong>Diseño y Automatización:</strong> Definición, planeamiento y construcción de procesos automatizados para la gestión de información arquitectónica.</li>
+            <li><strong>Validación de Arquitectura:</strong> Evaluación de diagramas de componentes junto a equipos de desarrollo, líderes técnicos y Scrum Masters, analizando viabilidad, escalabilidad, complejidad, dependencias y buenas prácticas.</li>
+            <li><strong>Certificación Técnica:</strong> Revisión del cumplimiento de acuerdos de diseño, negociación y gestión de deudas técnicas.</li>
+            <li><strong>Pruebas de Concepto:</strong> Construcción de PoCs mediante desarrollo de piezas de software no comerciales para validar funcionalidades del framework.</li>
+            <li><strong>Soporte a Producción:</strong> Acompañamiento en pases productivos, monitoreo post-despliegue y resolución de incidencias.</li>
+            <li><strong>Gestión de Incidentes:</strong> Análisis, diagnóstico y aplicación de correctivos en entornos productivos.</li>
         </ul>
+        <div class="tech-stack-container">
+            <span class="stack-label">Stack:</span>
+            <span class="tech-tag">Java</span>
+            <span class="tech-tag">Spring</span>
+            <span class="tech-tag">Microservicios</span>
+            <span class="tech-tag">Monolitos</span>
+            <span class="tech-tag">SQL</span>
+            <span class="tech-tag">PL/SQL</span>
+            <span class="tech-tag">MongoDB</span>
+            <span class="tech-tag">Oracle</span>
+            <span class="tech-tag">ElasticSearch</span>
+            <span class="tech-tag">CI/CD</span>
+            <span class="tech-tag">Git</span>
+            <span class="tech-tag">Bitbucket</span>
+            <span class="tech-tag">Jenkins</span>
+            <span class="tech-tag">Artifactory</span>
+            <span class="tech-tag">SonarQube</span>
+            <span class="tech-tag">Scrum</span>
+            <span class="tech-tag">Kanban</span>
+            <span class="tech-tag">Jira</span>
+            <span class="tech-tag">Trello</span>
+            <span class="tech-tag">Scripting</span>
+            <span class="tech-tag">Google Apps Script</span>
+            <span class="tech-tag">Javascript</span>
+        </div>
     </div>
 
+    <!-- SAPIA -->
     <div class="experience-item">
         <div class="exp-header">
-            <div class="role">Analista Programador</div>
-            <div class="date">2020</div>
+            <div class="role-wrapper">
+                <div class="role-indicator"></div>
+                <span class="role">Analista Programador</span>
+            </div>
+            <span class="date">Febrero 2020 — Mayo 2020</span>
         </div>
         <span class="company">SAPIA (Claro)</span>
+        <p class="impact-statement"></p>
         <ul>
-            <li>Implementación de servicios REST y soporte productivo.</li>
+            <li><strong>Servicios REST:</strong> Diseño, construcción y documentación de servicios según lineamientos de arquitectura.</li>
+            <li><strong>Gestión de Incidentes:</strong> Análisis, evaluación e implementación de correctivos en producción.</li>
+            <li><strong>Pases a Producción:</strong> Participación activa en despliegues y resolución de incidencias durante el proceso.</li>
         </ul>
+        <div class="tech-stack-container">
+            <span class="stack-label">Stack:</span>
+            <span class="tech-tag">Java</span>
+            <span class="tech-tag">Spring Boot</span>
+            <span class="tech-tag">Oracle</span>
+            <span class="tech-tag">OSB</span>
+            <span class="tech-tag">MDB</span>
+            <span class="tech-tag">Batch</span>
+        </div>
     </div>
 
+    <!-- EQUIFAX -->
     <div class="experience-item">
         <div class="exp-header">
-            <div class="role">Analista QA</div>
-            <div class="date">2018 — 2019</div>
+            <div class="role-wrapper">
+                <div class="role-indicator"></div>
+                <span class="role">Analista QA</span>
+            </div>
+            <span class="date">Octubre 2018 — Abril 2019</span>
         </div>
-        <span class="company">Manpower (Equifax)</span>
+        <span class="company">Manpower (EQUIFAX)</span>
+        <p class="impact-statement"></p>
         <ul>
-            <li>Pruebas funcionales y automatización con Selenium.</li>
+            <li><strong>Testing Integral:</strong> Ejecución de pruebas manuales y automatizadas: funcionales, no funcionales, regresión, integración y unitarias.</li>
+            <li><strong>Automatización:</strong> Desarrollo de pruebas automatizadas con Selenium para asegurar estabilidad del software.</li>
         </ul>
+        <div class="tech-stack-container">
+            <span class="stack-label">Stack:</span>
+            <span class="tech-tag">Java</span>
+            <span class="tech-tag">Spring</span>
+            <span class="tech-tag">Oracle</span>
+            <span class="tech-tag">PL/SQL</span>
+            <span class="tech-tag">MSSQL</span>
+            <span class="tech-tag">Selenium</span>
+            <span class="tech-tag">Scrum</span>
+            <span class="tech-tag">Git</span>
+            <span class="tech-tag">Jenkins</span>
+            <span class="tech-tag">SonarQube</span>
+        </div>
     </div>
 
+    <!-- SERVEX -->
+    <div class="experience-item">
+        <div class="exp-header">
+            <div class="role-wrapper">
+                <div class="role-indicator"></div>
+                <span class="role">Analista Programador</span>
+            </div>
+            <span class="date">Marzo 2018 — Septiembre 2018</span>
+        </div>
+        <span class="company">SERVEX</span>
+        <p class="impact-statement"></p>
+        <ul>
+            <li><strong>Levantamiento de Requerimientos:</strong> Análisis de necesidades del área de operaciones y diseño de la solución.</li>
+            <li><strong>Implementación:</strong> Desarrollo, pruebas y puesta en producción de funcionalidades.</li>
+        </ul>
+        <div class="tech-stack-container">
+            <span class="stack-label">Stack:</span>
+            <span class="tech-tag">Java</span>
+            <span class="tech-tag">Servlets</span>
+            <span class="tech-tag">REST</span>
+            <span class="tech-tag">MSSQL</span>
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">Javascript</span>
+            <span class="tech-tag">CSS</span>
+            <span class="tech-tag">JQuery</span>
+        </div>
+    </div>
+
+    <!-- CREDINKA -->
+    <div class="experience-item">
+        <div class="exp-header">
+            <div class="role-wrapper">
+                <div class="role-indicator"></div>
+                <span class="role">Analista Programador de Sistemas</span>
+            </div>
+            <span class="date">Agosto 2016 — Agosto 2017</span>
+        </div>
+        <span class="company">Credinka</span>
+        <p class="impact-statement"></p>
+        <ul>
+            <li><strong>Modelado Técnico:</strong> Elaboración de diagramas de flujo y modelos conceptuales.</li>
+            <li><strong>Desarrollo:</strong> Construcción, prueba y documentación de componentes.</li>
+            <li><strong>Soporte Productivo:</strong> Atención y resolución de incidentes.</li>
+        </ul>
+        <div class="tech-stack-container">
+            <span class="stack-label">Stack:</span>
+            <span class="tech-tag">MVC</span>
+            <span class="tech-tag">C#</span>
+            <span class="tech-tag">MSSQL</span>
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">JQuery</span>
+            <span class="tech-tag">Javascript</span>
+            <span class="tech-tag">CSS</span>
+        </div>
+    </div>
+
+    <!-- BITMAP -->
+    <div class="experience-item">
+        <div class="exp-header">
+            <div class="role-wrapper">
+                <div class="role-indicator"></div>
+                <span class="role">Programador</span>
+            </div>
+            <span class="date">Enero 2016 — Julio 2016</span>
+        </div>
+        <span class="company">Bitmap</span>
+        <p class="impact-statement"></p>
+        <ul>
+            <li><strong>Servicios REST:</strong> Construcción del core de servicios para aplicaciones web y móviles (Android) en sectores de transporte y construcción.</li>
+        </ul>
+    </div>
 </section>
 
+    
+
+    
+
+    <section id="formacion">
+        <h2>Formación Profesional</h2>
+        <div class="grid-refs">
+            <div>
+                <p><strong>CIBERTEC</strong> | Egresado Computación e Informática</p>
+            </div>
+        </div>
+        <br>
+        <h2>Referencias Laborales</h2>
+        <div class="grid-refs">
+            <div class="ref-item">
+                <p class="ref-name">Alex Diaz</p>
+                <p>Banking Architect (BBVA) | 995177175</p>
+            </div>
+            <div class="ref-item">
+                <p class="ref-name">Arturo Urquizo</p>
+                <p>Jefe Proyecto (SAPIA) | 997594803</p>
+            </div>
+            <div class="ref-item">
+                <p class="ref-name">Mayra Amasifuen</p>
+                <p>Coord. QA (EQUIFAX) | 959175102</p>
+            </div>
+            <div class="ref-item">
+                <p class="ref-name">Airton Piro</p>
+                <p>Jefe de Desarrollo (SERVEX) | 963850761</p>
+            </div>
+        </div>
+    </section>
 </div>
 
-</body>
-</html>
+
+
+
+</body></html>
